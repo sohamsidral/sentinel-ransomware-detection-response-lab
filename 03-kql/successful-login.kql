@@ -1,0 +1,6 @@
+```kql
+SecurityEvent
+| where EventID == 4624
+| project TimeGenerated, Computer, Account, IpAddress, LogonType
+| order by TimeGenerated desc
+```
