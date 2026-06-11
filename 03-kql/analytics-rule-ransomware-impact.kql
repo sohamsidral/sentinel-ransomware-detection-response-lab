@@ -1,0 +1,7 @@
+```kql
+SecurityEvent
+| where TimeGenerated > ago(1h)
+| where EventID == 4688
+| where CommandLine has_any ("Ransomware-Simulation-Lab", ".locked", "ransom-note", "ransom-note2")
+| project TimeGenerated, Computer, Account, NewProcessName, CommandLine, ParentProcessName
+```
